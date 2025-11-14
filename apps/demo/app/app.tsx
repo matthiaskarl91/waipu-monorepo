@@ -1,13 +1,26 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router';
+import { Home } from './app/pages/home';
+import { About } from './app/pages/about';
+import { MainLayout } from './app/layout/main-layout';
 
-export function App() {
+export default function App() {
   return (
-    <div>
-      <NxWelcome title="@demo/demo" />
-    </div>
+    <BrowserRouter basename="react-1">
+      <RoutesList />
+    </BrowserRouter>
   );
 }
 
-export default App;
+function RoutesList() {
+  const location = useLocation();
+  const pathname = location.pathname?.split('/').at(-1);
+
+  return (
+    <Routes location={`/${pathname}`}>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Route>
+    </Routes>
+  );
+}
