@@ -49,9 +49,25 @@ jobs:
           # Only write a well-formed key=value line to GITHUB_OUTPUT
           echo "apps=$AFFECTED" >> "$GITHUB_OUTPUT"
 
-      # Build affected projects only
+      - name: Determine base/head for Nx
+        id: nx-range
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.base_ref }}"
+            HEAD="HEAD"
+          else
+          # push: compare to previous commit on that branch
+            BASE="HEAD~1"
+            HEAD="HEAD"
+          fi
+
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+          echo "head=$HEAD" >> "$GITHUB_OUTPUT"
+
+
+          # Build affected projects only
       - name: Build affected projects
-        run: npx nx affected -t build --parallel=3
+        run: npx nx affected -t build --parallel=3 --base=${{ steps.nx-range.outputs.base }} --head=${{ steps.nx-range.outputs.head }}
 
       # Rearrange dist into versioned CDN layout: cdn/<app>/<version>/*
       - name: Prepare versioned CDN folder
