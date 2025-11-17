@@ -1,0 +1,19 @@
+{
+  "name": "demo",
+  "sourceRoot": "apps/demo/app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/demo"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev",
+      "options": {
+        "port": 4200
+      }
+    }
+  }
+}
