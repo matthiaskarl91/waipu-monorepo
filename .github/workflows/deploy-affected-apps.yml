@@ -78,7 +78,7 @@ jobs:
           mkdir -p cdn
 
           # apps we want to publish to the "CDN"
-          for APP in funnel csc portal; do
+          for APP in demo; do
             if echo "$AFFECTED" | grep -qw "$APP"; then
               echo "Processing app: $APP"
 
