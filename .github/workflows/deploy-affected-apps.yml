@@ -1,0 +1,84 @@
+name: Nx Affected Versioned Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build-affected:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # so Nx can detect affected projects
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Ask Nx which projects are affected for the "build" target
+      - name: Get affected projects
+        id: affected
+        run: |
+          AFFECTED=$(npx nx print-affected --target=build --select=projects || echo "")
+          echo "Affected projects: $AFFECTED"
+          echo "apps=$AFFECTED" >> "$GITHUB_OUTPUT"
+
+      # Build only affected projects
+      - name: Build affected projects
+        run: npx nx affected -t build --parallel=3
+
+      # Rearrange dist into versioned "CDN" layout
+      # cdn/<app>/<version>/*
+      - name: Prepare versioned CDN folder
+        run: |
+          AFFECTED="${{ steps.affected.outputs.apps }}"
+          echo "Using affected projects: $AFFECTED"
+
+          mkdir -p cdn
+
+          # list of apps we care about for this "CDN" demo
+          for APP in funnel csc portal; do
+            if echo "$AFFECTED" | grep -qw "$APP"; then
+              echo "Processing app: $APP"
+
+              # read version from apps/<app>/package.json
+              VERSION=$(node -p "require('./apps/${APP}/package.json').version || '0.0.0'")
+              echo "Version for ${APP}: ${VERSION}"
+
+              SRC="dist/apps/${APP}"
+              DEST="cdn/${APP}/${VERSION}"
+
+              if [ ! -d "$SRC" ]; then
+                echo "Warning: build output not found for ${APP} at ${SRC}, skipping."
+                continue
+              fi
+
+              mkdir -p "$DEST"
+              # copy build output into versioned folder
+              cp -R "${SRC}/." "$DEST/"
+            else
+              echo "App ${APP} not affected, skipping."
+            fi
+          done
+
+          echo "CDN layout:"
+          find cdn -maxdepth 3 -type d -print || true
+
+      # Upload the CDN folder as artifact
+      - name: Upload CDN artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdn-builds
+          path: cdn
+
