@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@waipu-monorepo/demo-1": "workspace:*",
+    "@waipu-monorepo/demo-1": "workspace:1.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "@astrojs/react": "^4.4.2",
@@ -16,3 +16,4 @@
     "typescript": "~5.9.2"
   }
 }
+

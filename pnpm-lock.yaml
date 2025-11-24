@@ -202,8 +202,11 @@ importers:
 
   apps/shell:
     dependencies:
+      '@astrojs/react':
+        specifier: ^4.4.2
+        version: 4.4.2(@types/node@20.19.9)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(jiti@2.4.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)
       '@waipu-monorepo/demo-1':
-        specifier: workspace:*
+        specifier: workspace:1.0.0
         version: link:../demo-1
       astro:
         specifier: ^5.16.0
