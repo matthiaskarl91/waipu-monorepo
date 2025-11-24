@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ReactApp from '@waipu-monorepo/demo-2/src/app/app'
+---
+
+<Layout title="Welcome to shell">
+  <ReactApp client:only="react" />
+</Layout>
