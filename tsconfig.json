@@ -7,13 +7,7 @@
       "path": "./apps/shell"
     },
     {
-      "path": "./apps/demo-1-e2e"
-    },
-    {
       "path": "./apps/demo-1"
-    },
-    {
-      "path": "./apps/demo-2-e2e"
     },
     {
       "path": "./apps/demo-2"

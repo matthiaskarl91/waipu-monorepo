@@ -12,7 +12,28 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "691f20ba26b3a3087dbcec6b",
+  "release": {
+    "projectsRelationship": "independent",
+    "releaseTag": {
+      "pattern": "release/{projectName}/{version}"
+    },
+    "version": {
+      "generatorOptions": {
+        "updateDependents": "always"
+      }
+    },
+    "groups": {
+      "demo-1": {
+        "projects": ["apps/demo-1"]
+      },
+      "demo-2": {
+        "projects": ["apps/demo-2"]
+      },
+      "shell": {
+        "projects": ["apps/shell"]
+      }
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
