@@ -214,7 +214,7 @@ importers:
         specifier: 1.0.0
         version: link:../demo-1
       '@waipu-monorepo/demo-2':
-        specifier: 0.1.0
+        specifier: 0.2.0
         version: link:../demo-2
       astro:
         specifier: ^5.16.0
