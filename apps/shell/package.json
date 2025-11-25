@@ -1,11 +1,11 @@
 {
   "name": "shell",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@waipu-monorepo/demo-1": "workspace:1.0.0",
-    "@waipu-monorepo/demo-2": "workspace:0.0.1",
+    "@waipu-monorepo/demo-1": "1.0.0",
+    "@waipu-monorepo/demo-2": "0.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "@astrojs/react": "^4.4.2",
@@ -17,4 +17,3 @@
     "typescript": "~5.9.2"
   }
 }
-
