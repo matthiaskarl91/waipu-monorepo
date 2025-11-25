@@ -14,6 +14,7 @@
   },
   "release": {
     "projectsRelationship": "independent",
+    "skipPublish": true,
     "releaseTag": {
       "pattern": "release/{projectName}/{version}"
     },
