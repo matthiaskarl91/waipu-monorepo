@@ -1,0 +1,12 @@
+{
+  "name": "@waipu-monorepo/demo-1",
+  "sourceRoot": "apps/demo-1/app",
+  "targets": {
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "registry": "http://localhost:4873/"
+      }
+    }
+  }
+}

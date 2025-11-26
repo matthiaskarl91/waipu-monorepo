@@ -1,5 +1,5 @@
 {
-  "name": "shell",
+  "name": "@waipu-monorepo/shell",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/shell/src",
   "projectType": "application",
@@ -58,6 +58,12 @@
       "metadata": {
         "technologies": ["astro"],
         "description": "Generate TypeScript types for Astro Content Collections and modules (via astro sync)"
+      }
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "registry": "http://localhost:4873/"
       }
     }
   }
