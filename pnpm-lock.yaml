@@ -217,8 +217,8 @@ importers:
         specifier: ^4.4.2
         version: 4.4.2(@types/node@20.19.9)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(jiti@2.4.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.44.1)(yaml@2.8.1)
       '@waipu-monorepo/demo-1':
-        specifier: 2.0.0
-        version: 2.0.0(typescript@5.9.3)
+        specifier: 2.0.1
+        version: 2.0.1(typescript@5.9.3)
       '@waipu-monorepo/demo-2':
         specifier: 1.0.0
         version: 1.0.0
@@ -2763,8 +2763,8 @@ packages:
   '@vue/shared@3.5.25':
     resolution: {integrity: sha512-AbOPdQQnAnzs58H2FrrDxYj/TJfmeS2jdfEEhgiKINy+bnOANmVizIEgq1r+C5zsbs6l1CCQxtcj71rwNQ4jWg==}
 
-  '@waipu-monorepo/demo-1@2.0.0':
-    resolution: {integrity: sha512-U197Qnq/7B9ceC5LuJMcrckdrxhKT0QFhCvL7l1GBepwZJYEca+vJQ9+XuU6cgNm3OorUV2TT8MS5eeTRLrPDQ==}
+  '@waipu-monorepo/demo-1@2.0.1':
+    resolution: {integrity: sha512-e0DVHYjrpw8RoJJoWPtU9xpGU6DeU/OFC7Byp5r9moi/el/2odcsJLX9jTTWYANbCRYfNIoT8lVGGMG6USB/yA==}
 
   '@waipu-monorepo/demo-2@1.0.0':
     resolution: {integrity: sha512-5tZuz9j1mE3rm6uxXFOtAEWm0lElr9BEF0piIhLS2Ahl8ptly2g8dzTC7lv0SqpFGSdsV3Lf6QiNOQ8JDnzFFw==}
@@ -10937,7 +10937,7 @@ snapshots:
 
   '@vue/shared@3.5.25': {}
 
-  '@waipu-monorepo/demo-1@2.0.0(typescript@5.9.3)':
+  '@waipu-monorepo/demo-1@2.0.1(typescript@5.9.3)':
     dependencies:
       '@react-router/node': 7.9.6(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
       '@react-router/serve': 7.9.6(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
