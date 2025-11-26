@@ -1,10 +1,10 @@
 {
   "name": "shell",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@waipu-monorepo/demo-1": "1.0.0",
+    "@waipu-monorepo/demo-1": "2.0.0",
     "@waipu-monorepo/demo-2": "1.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
