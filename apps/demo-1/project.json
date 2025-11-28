@@ -1,6 +1,7 @@
 {
   "name": "@waipu-monorepo/demo-1",
   "sourceRoot": "apps/demo-1/app",
+  "tags": ["scope:demo-1", "scope:shared"],
   "targets": {
     "nx-release-publish": {
       "executor": "@nx/js:release-publish",

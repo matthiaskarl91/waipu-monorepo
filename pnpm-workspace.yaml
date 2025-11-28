@@ -2,4 +2,4 @@ packages:
   - 'apps/shell'
   - 'apps/demo-1'
   - 'apps/demo-2'
-  - 'ui'
+  - 'libs/*'
